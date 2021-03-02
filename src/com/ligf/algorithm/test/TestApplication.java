@@ -1,5 +1,6 @@
 package com.ligf.algorithm.test;
 
+import com.ligf.algorithm.leetcode.TreeNumOne;
 import com.ligf.algorithm.tree.TreeNode;
 import com.ligf.algorithm.tree.TreeUtil;
 
@@ -13,6 +14,11 @@ public class TestApplication {
 
     public static void main(String[] argS){
         TreeNode tree = TreeUtil.initTree();
-        TreeUtil.preOrderTraversal(tree);
+//        TreeUtil.preOrderTraversal(tree);
+        int height = TreeUtil.maxHeight(tree);
+        System.out.println("height:" + height);
+
+        boolean isBalanced = new TreeNumOne().isBalanced(tree);
+        System.out.println("isBalanced:" + isBalanced);
     }
 }

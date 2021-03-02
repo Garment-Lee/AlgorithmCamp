@@ -23,7 +23,7 @@ public class TreeUtil {
         headNode.setLeft(treeNode1);
         headNode.setRight(treeNode5);
         treeNode1.setLeft(treeNode2);
-        treeNode2.setLeft(treeNode3);
+//        treeNode2.setLeft(treeNode3);
         treeNode2.setRight(treeNode4);
         treeNode5.setLeft(treeNode6);
         return headNode;
@@ -67,11 +67,40 @@ public class TreeUtil {
 
     /**
      * 遍历树并得到树的深度
+     * <p>思路：计算树的深度，使用前序遍历的方法(递归方式)。
+     *          1）递归函数传递参数；
+     *          2）递归函数不需要返回值；
+     *          2）跳出递归的条件：判断结点是否为null。
      * @param root
      * @return
      */
-//    public static int getTreeDepth(TreeNode root){
-//
-//    }
+    public static int result; //保存数的最大深度
+    public static void maxDepth(TreeNode root, int depth){
+        if (root != null){
+            depth = depth + 1;
+            result = Math.max(result, depth);
+            maxDepth(root.getLeft(), depth);
+            maxDepth(root.getRight(), depth);
+        }
+    }
+
+    /**
+     * 遍历树结构，并得到树的高度
+     * <p> 思路：计算树的高度，使用后序遍历（递归方式）。
+     *          1）不传递递归函数参数；
+     *          2）递归函数需要返回值，该值就是树的最大高度；
+     *          3）跳出递归的条件：判断结点是否为null。
+     * @param root
+     * @return
+     */
+    public static int maxHeight(TreeNode root){
+        int height = 0;
+        if (root != null){
+            int left = maxHeight(root.getLeft());
+            int right = maxHeight(root.getRight());
+            height = Math.max(left, right) + 1;
+        }
+        return height;
+    }
 
 }
