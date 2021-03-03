@@ -12,17 +12,17 @@ public class TreeNode {
     /**
      * 左节点
      */
-    private TreeNode left;
+    public TreeNode left;
 
     /**
      * 右节点
      */
-    private TreeNode right;
+    public TreeNode right;
 
     /**
      * 节点的值
      */
-    private int value;
+    public int value;
 
     /**
      * 树节点的构造函数
