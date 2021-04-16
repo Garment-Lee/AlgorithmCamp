@@ -1,5 +1,7 @@
 package com.ligf.algorithm.tree;
 
+import java.util.Stack;
+
 /**
  * @ClassName TreeUtil
  * @Description 树数据结构工具类
@@ -38,6 +40,28 @@ public class TreeUtil {
             System.out.println(root.getValue());
             preOrderTraversal(root.getLeft());
             preOrderTraversal(root.getRight());
+        }
+    }
+
+    /**
+     * 先序遍历树，输出所有数据（非递归实现）
+     * @param root
+     */
+    public static void preOrderTraversalV1(TreeNode root){
+        Stack<TreeNode> treeNodeStack = new Stack<>();
+        TreeNode treeNode = root;
+        while (treeNode != null || treeNodeStack.size() > 0){
+            //先访问左子树，左节点入栈
+            while (treeNode != null){
+                System.out.println(treeNode.value);
+                treeNodeStack.push(treeNode);
+                treeNode = treeNode.left;
+            }
+            //节点出栈，回溯访问右节点
+            if (treeNodeStack.size() > 0){
+                treeNode = treeNodeStack.pop();
+                treeNode = treeNode.right;
+            }
         }
     }
 
@@ -94,13 +118,23 @@ public class TreeUtil {
      * @return
      */
     public static int maxHeight(TreeNode root){
-        int height = 0;
-        if (root != null){
-            int left = maxHeight(root.getLeft());
-            int right = maxHeight(root.getRight());
-            height = Math.max(left, right) + 1;
-        }
-        return height;
+//        int height = 0;
+//        if (root != null){
+//            int left = maxHeight(root.getLeft());
+//            int right = maxHeight(root.getRight());
+//            height = Math.max(left, right) + 1;
+//        }
+//        return height;
+//
+        //递归的结束条件
+        if (root == null)
+            return 0;
+
+        //把问题分解为规模更小的子问题
+        int subLeft = maxHeight(root.getLeft());
+        int subRight = maxHeight(root.getRight());
+        int treeHeight = Math.max(subLeft, subRight) + 1;
+        return treeHeight;
     }
 
 }

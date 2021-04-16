@@ -13,12 +13,8 @@ import com.ligf.algorithm.tree.TreeUtil;
 public class TestApplication {
 
     public static void main(String[] argS){
-        TreeNode tree = TreeUtil.initTree();
-//        TreeUtil.preOrderTraversal(tree);
-        int height = TreeUtil.maxHeight(tree);
-        System.out.println("height:" + height);
-
-        boolean isBalanced = new TreeNumOne().isBalanced(tree);
-        System.out.println("isBalanced:" + isBalanced);
+       String s = "b";
+       String subString = s.substring(0, s.length());
+        System.out.println("subString:" + subString);
     }
 }
