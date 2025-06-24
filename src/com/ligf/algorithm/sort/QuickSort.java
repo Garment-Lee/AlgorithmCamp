@@ -35,10 +35,11 @@ public class QuickSort {
                 }
             }
             arr[i] = key;
-            //递归执行规模更小的左边数组
-            quickSort(l, i - 1, arr);
-            //递归执行规模更小的右边数组
-            quickSort(i + 1, h, arr);
+
         }
+        //递归执行规模更小的左边数组
+        quickSort(l, h - 1, arr);
+        //递归执行规模更小的右边数组
+        quickSort(l + 1, h, arr);
     }
 }
