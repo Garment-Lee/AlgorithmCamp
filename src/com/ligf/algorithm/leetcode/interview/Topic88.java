@@ -1,10 +1,14 @@
 package com.ligf.algorithm.leetcode.interview;
 
 /**
- * @ClassName Topic88
+ * @ClassName Topic88[数组]
  * @Description 合并两个有序数组
  * @Author GarmentLee
  * @Date 2024/9/5 23:34
+ * @解决思路：
+ *  1）for循环遍历待插入数组，由于部分数据位于数组前面，所以从数组尾部向数组前部遍历，从数组尾部开始插入数据（从大到小）；
+ *  2）m和n分别作为两个待合并数据的游标，遍历比较两个数组的数据大小，取大的插入到待插入数据尾部；
+ *  3）注意遍历待合并数组时的边界，也就是某个游标为0的时候。
  */
 public class Topic88 {
 
